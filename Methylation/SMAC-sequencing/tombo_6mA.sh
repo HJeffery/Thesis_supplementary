@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=tombo-C			# Job name
+#SBATCH --job-name=tombo-A			# Job name
 #SBATCH --ntasks=16 				# Run on 16 cores
-#SBATCH --output=5mC_barcode12.out		# Unique output name
+#SBATCH --output=6mA_barcode12.out		# Unique output name
 
 # This is a script to run the Tombo commands
 # Will need to edit the fastq data it is given each time to run it on separate groups of reads
@@ -45,7 +45,7 @@ tombo resquiggle fast5_barcode12/fast5_barcode12/ sacCer3.fa --dna --failed-read
 echo "Resquiggle complete, running detect modififications"
 
 # Detect modified bases - de novo model
-tombo detect_modifications de_novo --fast5-basedirs fast5_barcode12/fast5_barcode12/ --statistics-file-basename 5mC_barcode12_summary_stats.de_novo --per-read-statistics-basename 5mC_barcode12_per_read_stats.de_novo --processes 16
+tombo detect_modifications de_novo --fast5-basedirs fast5_barcode12/fast5_barcode12/ --statistics-file-basename 6mA_barcode12_summary_stats.de_novo --per-read-statistics-basename 6mA_barcode12_per_read_stats.de_novo --processes 16
 
 echo "Tombo detect modification complete"
 
